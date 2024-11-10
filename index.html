@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warehouse Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background">
+        <div id="authForm" class="container">
+            <button class="auth-button" onclick="showLogin()">Login</button>
+            <button class="auth-button" onclick="showRegister()">Register</button>
+            <div id="loginForm" class="hidden">
+                <h2>Login</h2>
+                <input type="text" id="loginUsername" placeholder="Username">
+                <input type="password" id="loginPassword" placeholder="Password">
+                <button class="submit-button" onclick="login()">Login</button>
+            </div>
+            <div id="registerForm" class="hidden">
+                <h2>Register</h2>
+                <input type="text" id="registerUsername" placeholder="Username">
+                <input type="password" id="registerPassword" placeholder="Password">
+                <button class="submit-button" onclick="register()">Register</button>
+            </div>
+        </div>
+
+        <div id="dashboard" class="container hidden">
+            <h2>Dashboard</h2>
+            <div class="button-group">
+                <button class="dashboard-button" onclick="showForm('add')">Add Inventory</button>
+                <button class="dashboard-button" onclick="showStock()">Display Inventory</button>
+                <button class="dashboard-button" onclick="logout()">Logout</button>
+            </div>
+
+            <div id="addShipmentForm" class="hidden form-section">
+                <h3>Add/Edit Inventory</h3>
+                <label for="berryType">Berry Type:</label>
+                <input type="text" id="berryType" placeholder="Berry Type"><br>
+                <label for="batchNumber">Batch Number:</label>
+                <input type="text" id="batchNumber" placeholder="Batch Number"><br>
+                <label for="harvestDate">Harvest Date:</label>
+                <input type="date" id="harvestDate"><br>
+                <label for="quantity">Quantity:</label>
+                <input type="number" id="quantity" placeholder="Quantity"><br>
+                <label for="storageLocation">Storage Location:</label>
+                <input type="text" id="storageLocation" placeholder="Location"><br>
+                <button class="submit-button" id="saveShipmentBtn" onclick="saveShipment()">Save</button>
+                <button class="submit-button hidden" id="updateShipmentBtn" onclick="updateShipment()">Update</button>
+            </div>
+
+            <div id="viewStock" class="hidden form-section">
+                <h3>Inventory List</h3>
+                <table id="stockTable">
+                    <thead>
+                        <tr>
+                            <th>Berry Type</th>
+                            <th>Batch Number</th>
+                            <th>Harvest Date</th>
+                            <th>Quantity</th>
+                            <th>Storage Location</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+
+                <h3>Location Overview</h3>
+                <table id="locationTable">
+                    <thead>
+                        <tr>
+                            <th>Location</th>
+                            <th>Total Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
